@@ -1,0 +1,34 @@
+class Solution:
+    def check(self, nums: List[int]) -> bool:
+        n = len(nums)
+        count = 0
+        for i in range(n):
+            if nums[i] > nums[(i+1) % n]:
+                count += 1
+
+        return count <= 1
+
+
+
+#better
+        n=len(nums)
+        count=0
+        for i in range(n-1):
+            if nums[i]>nums[i+1]:
+                count+=1
+        if nums[n-1]>nums[0]:
+                count+=1
+        return count<=1
+            
+
+
+#bruteforce
+        n=len(nums)
+        sorted_arr=sorted(nums) nlogn
+        for i in range(n): n
+            rotated=sorted_arr[i:]+sorted_arr[:i]
+            if rotated==nums:
+                return True
+        return False
+        
+        
