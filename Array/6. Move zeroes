@@ -1,0 +1,38 @@
+class Solution:
+    def moveZeroes(self, nums: List[int]) -> None:
+        n=len(nums)
+        left=0
+        for right in range(n):
+            if nums[right]!=0:
+                nums[left],nums[right]=nums[right],nums[left]
+                left+=1
+
+#better
+        n=len(nums)
+        i=0
+        for j in range(n):
+            if nums[j]!=0:
+                nums[i]=nums[j]
+                i+=1
+        for k in range(i,n):
+            nums[k]=0
+
+#bruteforce
+        n=len(nums)
+        temp=[]
+        for i in range(n):
+            if nums[i]!=0:
+                temp.append(nums[i])
+
+        zeroes=len(nums)-len(temp)
+        temp.extend([0]*zeroes)
+        for i in range(n):
+            nums[i]=temp[i]
+
+
+
+
+
+
+     
+        
